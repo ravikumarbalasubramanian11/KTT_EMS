@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Create Login</title>
+  <link rel="stylesheet" href="index.css"/>
+
+</head>
+<body>
+
+
+  <form method="get" action="/login/aspx/findAll">
+    <button type="submit">Submit</button>
+  </form>
+
+  <form method="get" action="/login/aspx/find">
+    <label for="user_name">User Name:</label>
+    <input type="text" value="123" name="user_name"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password"><br><br>
+    <input type="submit" value="Login">
+  </form>
+
+
+  <h1 class="ravi">Create Login</h1>
+  <form action="/login/aspx" method="post">
+    <label for="full_name">Full Name:</label>
+    <input type="text" name="full_name" required>
+    <br>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" required>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" name="age" required>
+    <br>
+    <label for="blood_group">Blood Group:</label>
+    <input type="text" name="blood_group" required>
+    <br>
+    <label for="contact_number">Contact Number:</label>
+    <input type="tel" name="contact_number" required>
+    <br>
+    <label for="date_of_joining">Date of Joining:</label>
+    <input type="date" name="date_of_joining" required>
+    <br>
+    <label for="address">Address:</label>
+    <input type="text" name="address" required>
+    <br>
+    <label for="department">Department:</label>
+    <input type="text" name="department" required>
+    <br>
+    <label for="past_experiance">Past Experience:</label>
+    <textarea name="past_experiance" required></textarea>
+    <br>
+    <button type="submit">Create Login</button>
+  </form>
+
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const response = await fetch('/login/aspx/findAll');
+    const data = await response.json();
+    displayData(data);
+  });
+
+  // display the data in a table
+  function displayData(data) {
+    const table = document.createElement('table');
+    const tbody = document.createElement('tbody');
+    data.forEach((item) => {
+      const tr = document.createElement('tr');
+      const td1 = document.createElement('td');
+      td1.textContent = item.id;
+      const td2 = document.createElement('td');
+      td2.textContent = item.fullName;
+      const td3 = document.createElement('td');
+      td3.textContent = item.lastName;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    document.body.appendChild(table);
+  }
+</script>
+</body>
+</html>
