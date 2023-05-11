@@ -1,8 +1,12 @@
 
-
 module.exports = (sequelize,bcrypt, Sequelize) => {
 
-    const Login = sequelize.define("login", {
+    const Employee = sequelize.define("employee", {
+      id:{ 
+        primaryKey : true,
+        autoIncrement : true,
+        type  : Sequelize.INTEGER
+          },
       fullName: {
         type: Sequelize.STRING
       },
@@ -31,7 +35,12 @@ module.exports = (sequelize,bcrypt, Sequelize) => {
         type: Sequelize.STRING
       },
       email:{
-        type: Sequelize.STRING
+        type : Sequelize.STRING,
+        isUnique :true,
+        allowNull:false,
+        validate:{
+            isEmail : true
+        }
       },
       userName: {
         type: Sequelize.STRING
@@ -41,21 +50,21 @@ module.exports = (sequelize,bcrypt, Sequelize) => {
       }},
       {
         hooks: {
-          beforeCreate: async (login) => {
+          beforeCreate: async (employee) => {
             const salt = await bcrypt.genSaltSync(10);
-            login.password = await bcrypt.hashSync(login.password, salt);
+            employee.password = await bcrypt.hashSync(employee.password, salt);
           },
-          beforeUpdate: async (login) => {
-            if (login.changed('password')) {
+          beforeUpdate: async (employee) => {
+            if (employee.changed('password')) {
               const salt = await bcrypt.genSaltSync(10);
-              login.password = await bcrypt.hashSync(login.password, salt);
+              employee.password = await bcrypt.hashSync(employee.password, salt);
             }
           
         }
       }
     });
 
-    module.exports = Login;
+    module.exports = Employee;
 
-    return Login;
+    return Employee;
   }; 

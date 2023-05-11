@@ -1,0 +1,38 @@
+doctype html
+head
+  link(rel='stylesheet' type='text/css' href='https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css')
+  link(href='https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.css' rel='stylesheet')
+  link(href='https://cdn.datatables.net/v/dt/b-2.3.6/b-html5-2.3.6/datatables.css' rel='stylesheet')
+style.
+  table {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid black;
+    }
+    .btn-excel {
+        background-color: green;
+        color: white;
+    }
+table#myTable
+  thead
+    tr
+      th ID
+      th Full Name
+      th Last Name
+      th Age
+      th Blood Group
+      th Contact Number
+      th Date of Joining
+      th Address
+      th Department
+      th Past Experience
+      th Email
+      <th class="admin-only">Action</th>
+  tbody
+script(src='https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/b-print-2.3.6/datatables.min.js')
+script(type='text/javascript' src='tableUC.js')
+script(src='https://cdn.datatables.net/v/dt/b-2.3.6/b-html5-2.3.6/datatables.js')

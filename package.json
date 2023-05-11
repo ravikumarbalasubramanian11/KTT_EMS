@@ -9,12 +9,20 @@
   "author": "Ravikumar B",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.3.0-alpha3",
+    "casbin": "^5.26.1",
     "cors": "^2.8.5",
+    "datatables.net-buttons-dt": "^2.3.6",
+    "datatables.net-dt": "^1.13.4",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.6.4",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.31.0"
+    "pug": "^3.0.2",
+    "sequelize": "^6.31.0",
+    "uuid": "^9.0.0"
   }
 }

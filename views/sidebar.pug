@@ -1,0 +1,15 @@
+aside.sidebar
+  style.
+    a {
+      text-decoration: none;
+    }
+.container-fluid.rounded 
+  .row
+    .col-12.pl-5.pt-2.text-center
+      h5.py-2
+        a(href='/dashboard').text-decoration-none.text-dark Dashboard
+      //h5.py-2
+        if(sessionAdmin)
+          a(href='#exampleModal', data-toggle='modal').text-decoration-none.text-dark Update 
+      h5.py-2
+        a(href='#exampleModal1', data-toggle='modal').text-decoration-none.text-dark New Employee 

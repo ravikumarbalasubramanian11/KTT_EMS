@@ -6,9 +6,19 @@ module.exports = app => {
     // Create a new Tutorial
     router.post("/", logged.create);
 
+    router.post("/create", logged.create1);
+
     router.get("/find", logged.findOne);
 
+    router.get("/find/:id", logged.findOneId);
+ 
     router.get("/findAll", logged.findAll);
+
+    router.put("/:id", logged.update);
+
+    router.delete("/delete/:id", logged.delete);
+
+    router.get("/count", logged.count);
   
-    app.use('/login/aspx', router);
+    app.use('/login', router);
   };

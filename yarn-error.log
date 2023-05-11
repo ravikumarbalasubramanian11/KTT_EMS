@@ -1,0 +1,52 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\SATHEESHKUMAR\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add jquery
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\SATHEESHKUMAR\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\nodejs\;C:\Program Files\nodejs\AppData\Roaming\npm\node_modules\react-native-cli\index.js;C:\flutter\bin;C:\Users\SATHEESHKUMAR\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\SATHEESHKUMAR\AppData\Local\Programs\Python\Python311\;C:\Users\SATHEESHKUMAR\AppData\Local\Microsoft\WindowsApps;C:\Users\SATHEESHKUMAR\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\SATHEESHKUMAR\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\SATHEESHKUMAR\AppData\Roaming\npm;C:\Users\SATHEESHKUMAR\Downloads\flutter_windows_3.7.12-stable\flutter\bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\SATHEESHKUMAR\KTT_EMS\node_modules\bcrypt\lib\binding\napi-v3\bcrypt_lib.node'
+
+npm manifest: 
+  {
+    "name": "ktt_ems",
+    "version": "1.0.0",
+    "description": "Task-1",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Ravikumar B",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "bootstrap": "^5.3.0-alpha3",
+      "casbin": "^5.26.1",
+      "cors": "^2.8.5",
+      "datatables.net-buttons-dt": "^2.3.6",
+      "datatables.net-dt": "^1.13.4",
+      "express": "^4.18.2",
+      "express-session": "^1.17.3",
+      "jquery": "^3.6.4",
+      "pg": "^8.10.0",
+      "pg-hstore": "^2.3.4",
+      "pug": "^3.0.2",
+      "sequelize": "^6.31.0",
+      "uuid": "^9.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

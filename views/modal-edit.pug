@@ -1,0 +1,13 @@
+//if(sessionAdmin)
+  button.btn.btn-warning(type='button' data-toggle='modal' data-target='#exampleModal')
+    New Update 
+// Modal
+#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      .modal-header
+        h1#exampleModalLabel.modal-title Update Existing Employee 
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+      .modal-body
+        include edit

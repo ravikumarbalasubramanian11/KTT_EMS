@@ -1,0 +1,13 @@
+if(sessionAdmin)
+  button.btn.btn-success(type='button' data-toggle='modal' data-target='#exampleModal1')
+    New New Employee
+// Modal
+#exampleModal1.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      .modal-header
+        h1#exampleModalLabel.modal-title New Employee 
+        button.text-decoration-none.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+      .modal-body
+        include create-modal
