@@ -20,6 +20,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.employee = require("./model.js")(sequelize,bcrypt, Sequelize);
+db.employeeRole = require("./userrole.js")(sequelize,bcrypt, Sequelize);
+
+
 
 /*
 db.library = require("./tutorial.model.copy.js")(sequelize, Sequelize);

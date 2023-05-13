@@ -5,11 +5,15 @@ aside.sidebar
     }
 .container-fluid.rounded 
   .row
-    .col-12.pl-5.pt-2.text-center
+    .col-12.pl-5.pt-4.text-center
       h5.py-2
         a(href='/dashboard').text-decoration-none.text-dark Dashboard
+      h5.py-2
+        a(href='/employee-list').text-decoration-none.text-dark Employee List
+      h5.py-2
+        a(href='/user-role').text-decoration-none.text-dark User role
       //h5.py-2
         if(sessionAdmin)
           a(href='#exampleModal', data-toggle='modal').text-decoration-none.text-dark Update 
-      h5.py-2
+      //h5.py-2
         a(href='#exampleModal1', data-toggle='modal').text-decoration-none.text-dark New Employee 

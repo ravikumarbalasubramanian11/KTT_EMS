@@ -1,0 +1,32 @@
+// main.pug
+doctype html
+html
+  head
+    title KTT EMS
+  body
+    header
+      include topbar
+      nav
+        a(href="#", data-page="dashboard") Home
+        a(href="#", data-page="edit") About
+        a(href="#", data-page="contact") Contact
+    main
+      div#page-content
+        include dashboard.pug
+      script.
+        // Send AJAX request to fetch page content and update the DOM
+        const links = document.querySelectorAll('nav a');
+        const pageContent = document.querySelector('#page-content');
+
+        links.forEach(link => {
+          link.addEventListener('click', event => {
+            event.preventDefault();
+            const page = link.dataset.page;
+            fetch(`/${page}`)
+              .then(response => response.text())
+              .then(html => {
+                pageContent.innerHTML = html;
+              })
+              .catch(error => console.error(error));
+          });
+        });

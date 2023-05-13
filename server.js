@@ -29,12 +29,12 @@ app.get('/login', function(req, res) {
   console.log(`${req.url}`)
 });
 
-app.get('/login-form',requireAuth, function(req, res) {
+app.get('/login-form', function(req, res) {
   res.render('form');
   console.log(`${req.url}`)
 });
 
-app.get('/dashboard', requireAuth , requireAdmin, function(req, res) {
+app.get('/dashboard', function(req, res) {
   const {  userName } = req.session;
   res.render('dashboard', { userName });
 });
@@ -55,12 +55,20 @@ app.get('/table', function(req, res) {
   console.log(`${req.url}`)
 });
 
+app.get('/user-role', function(req, res) {
+  res.render('user-role');
+  console.log(`${req.url}`)
+});
 
 app.get('/logout',requireAuth, (req, res) => {
   req.session.destroy();
   res.redirect('/login');
 });
 
+app.get('/employee-list', function(req, res) {
+  res.render('employee-list');
+  console.log(`${req.url}`)
+});
 
 app.get('/sessionAdmin', (req, res) => {
   const sessionAdmin = req.session.userName === "admin";
@@ -70,7 +78,7 @@ app.get('/sessionAdmin', (req, res) => {
 
 
 const db = require("./app/models");
-db.sequelize.sync()
+db.sequelize.sync({ alter: true })
   .then(() => {
     console.log("Synced db.");
   })

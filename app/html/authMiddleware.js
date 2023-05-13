@@ -6,7 +6,7 @@ const requireAuth = (req, res, next) => {
     }
   };
 
-  // Define the middleware function
+  
 function requireAdmin(req, res, next) {
   sessionAdmin = req.session.userName === "admin"
   if (sessionAdmin) {

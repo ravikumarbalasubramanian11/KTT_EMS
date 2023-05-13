@@ -20,7 +20,7 @@ module.exports = (sequelize,bcrypt, Sequelize) => {
         type: Sequelize.STRING
       },
       contactNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT(10)
       },
       dateOfJoining: {
         type: Sequelize.STRING

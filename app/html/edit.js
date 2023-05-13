@@ -1,3 +1,4 @@
+
 const button = document.querySelector('#update-button');
 const update = document.querySelector('#update');
 button.addEventListener('click', event => {
@@ -61,7 +62,7 @@ button.addEventListener('click', event => {
       departmentInput.value=department;
 
 
-      console.log(data); // This line is optional, but you could log the employee object to the console for debugging purposes
+      console.log(data);
     }
   })
   .catch(error => {
@@ -129,11 +130,10 @@ update.addEventListener('click',event =>{
       .then(data => {
         if (data.errorMessage) {
           alert("Error: " + data.errorMessage);
-          // Employee was updated successfully
+
           console.log('Employee was updated successfully.');
           modal.style.display = 'none';
         } else {
-          // Error updating employee
           console.error('Error updating employee.');
           alert(data.successMessage);
           modal.style.display = 'none';

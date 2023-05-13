@@ -1,0 +1,87 @@
+// Button trigger modal
+button.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target='#staticBackdrop')
+  | Add New User Role
+// Modal
+#staticBackdrop.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#staticBackdropLabel.modal-title Add new user role
+        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+      .modal-body
+        .container 
+          .row
+            .col-12.form-outline.mb-4
+               label.pb-2 Department
+               select#role.form-control.form-control-xl(type='text'  autocomplete='off' name='userName')
+                 option(value="") ---Select the Department---
+                 option(value="Management") Management
+                 option(value="IT") IT
+                 option(value="Engineering") Engineering
+                 option(value="Management") Finance
+            .col-6.form-outline
+              p.pb-4 Manager    
+                span.pt-2.ml-5
+                  input#rememberMeCheckbox(type='checkbox' width='100%' name='rememberMe' value='true')
+            .col-6.form-outline
+              p.pb-4  Assistant Manager   
+                span.pt-2.ml-5
+                  input#rememberMeCheckbox(type='checkbox' width='100%' name='rememberMe' value='true')
+            .col-6.form-outline
+              p.pb-4  Senior Manager  
+                span.pt-2.ml-5
+                  input#rememberMeCheckbox(type='checkbox' width='100%' name='rememberMe' value='true')
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Add User Role
+script.   
+  function myf(){
+
+        const id = document.querySelector('#employee-Id')
+        
+        $.ajax({
+        url: `/login/find/${id.value}`,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          if (data.successMessage) {
+
+            const fullName = data.employee.fullName;
+            const department = data.employee.department;
+
+            $('#employee-Name').val(fullName)
+            $('#existing-Department').val(department)
+
+            if(department=="Tax" || department=="tax")
+            {
+               $("#role").html("<option value=''>---Select User Role---</option><option value='Junior Auditor'>Junior Auditor</option><option value='Senior Auditor'>Senior Auditor</option><option value='Tax-Accountant'>Tax-Accountant</option>>");
+            }
+            else if(department=="Marketing" || department=="marketing")
+            {
+              $("#role").html("<option value=''>---Select User Role---</option><option value='Head of Marketing'>Head of Marketing</option><option value='Senior SalesPerson'>Senior SalesPerson</option><option value='Junior SalesPerson'>Junior SalesPerson</option>>");
+            }
+            else if(department=="Engineering" || department=="engineering")
+            {
+              $("#role").html("<option value=''>---Select User Role---</option><option value='Senoir Civil Engineer'>Senoir Civil Engineer</option><option value='Junior Civil Engineer'>Junior Civil Engineer</option><option value='Senoir Mechanical Engineer'>Senoir Mechanical Engineer</option><option value='Junior Mechanical Engineer'>Junior Mechanical Engineer</option>>");
+            }
+            else if(department=="IT" || department=="it")
+            {
+              $("#role").html("<option value=''>---Select User Role---</option><option value='Full Stack Developer'>Full Stack Developer</option><option value='Android Devloper'>Android Devloper</option><option value='iOS Developer'>iOS Developer</option><option value='Cross Platform Devloper'>Cross Platform Devloper</option>>");
+            }
+          }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.log(errorThrown);
+        }
+      });
+  }
+
+// jQuery
+script(src='https://code.jquery.com/jquery-3.6.4.js')
+// Bootstrap
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+// DataTables
+
+script(type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js')
+
+

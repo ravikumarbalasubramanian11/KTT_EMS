@@ -7,17 +7,7 @@ function newemployee() {
     window.location.href = '/edit';
   }
   
-  const countElement = document.querySelector('.no_of_count');
 
-(async function() {
-  const response = await fetch('/login/count');
-  const data = await response.json();
-  if (countElement) {
-    countElement.innerText = data.count;
-  } else {
-    console.error('Element with class "no_of_count" not found');
-  }
-})();
 
 $(document).ready(function() {
   $('#toggleBtn').click(function() {

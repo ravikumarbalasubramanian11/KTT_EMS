@@ -4,7 +4,7 @@ head
   link(rel='stylesheet' href='dashboard.css')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
   script(src='https://kit.fontawesome.com/6cda7ddb74.js' crossorigin='anonymous')
-  title KTT EMS
+  title EMS Employee list
 include topbar 
 .container-fluid#abc
   .row
@@ -16,18 +16,7 @@ include topbar
           .col-12.rounded-5.h-100.my-2.py-4
             .container
               .row
-                .container.position-relative
-                  // Rest of the container content
-                h1 Welcome Back #{userName} !
-                br
-                .col-8.content
-                  h3 Dashboard
-                  br
                 .col-12
-                  .container
-                    .row
-                      include d-employee-count 
-                //.col-12
                   br
                   .container 
                     .row 
@@ -47,10 +36,10 @@ include topbar
                       .col-6.col-xl-2    
                         include modal-create
                   br
-                //.col-12
+                .col-12
                   //if(sessionAdmin)
                   include table
-                //.col-12#pagination
-                //.col-12
+                .col-12#pagination
+                .col-12
                   #content
 script(src='dashboard.js')

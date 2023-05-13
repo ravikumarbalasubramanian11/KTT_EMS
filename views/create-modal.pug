@@ -32,43 +32,64 @@ body
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Email address
                             span(style='color: red;, font-size : 40px ;')  *
-                            input#email-1.form-control.form-control-xl(type='email' name='email')
+                            input#email-1.form-control.form-control-xl(type='email'  autocomplete='off' name='email')
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') User Name
                             span(style='color: red;, font-size : 40px ;')  *
-                            input#userName-1.form-control.form-control-xl(type='text' name='userName')
+                            input#userName-1.form-control.form-control-xl(type='text'  autocomplete='off' name='userName')
                           // Password input
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example23') Password
                             span(style='color: red;, font-size : 40px ;')  *
-                            input#password-1.form-control.w-10.form-control-xl(type='password' name='password')
+                            input#password-1.form-control.w-10.form-control-xl(type='password'  autocomplete='off'  name='password')
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') First Name
-                            input#fullName-1.form-control.form-control-xl(type='text' name='fullName')
+                            span(style='color: red;, font-size : 40px ;')  *
+                            input#fullName-1.form-control.form-control-xl(type='text'  autocomplete='off' pattern='[A-Za-z]+' name='fullName')
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Last Name
-                            input#lastName-1.form-control.form-control-xl(type='text' name='lastName')
+                            span(style='color: red;, font-size : 40px ;')  *
+                            input#lastName-1.form-control.form-control-xl(type='text'  autocomplete='off' name='lastName' pattern='[A-Za-z]+')
+                          .col-12.col-xl-4.form-outline.mb-4
+                            label.form-label(for='bloodGroup') Blood Group
+                            span(style='color: red;, font-size : 40px ;') *
+                            select#bloodGroup-1.form-control.form-control-xl(type='text'  autocomplete='off' name='bloodGroup')
+                              option(value=' ') --- Select the Blood Group --- 
+                              option(value='A+') A+
+                              option(value='A-') A-
+                              option(value='B+') B+
+                              option(value='B-') B-
+                              option(value='AB+') AB+
+                              option(value='AB-') AB-
+                              option(value='O+') O+
+                              option(value='O-') O-
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Age
-                            input#age-1.form-control.form-control-xl(type='text' name='age')
-                          .col-12.col-xl-4.form-outline.mb-4
-                            label.form-label(for='form1Example13') Blood Group
-                            input#bloodGroup-1.form-control.form-control-xl(type='text' name='bloodGroup')
+                            span(style='color: red;, font-size : 40px ;')  *
+                            input#age-1.form-control.form-control-xl(type='number'  autocomplete='off' name='age' pattern='[0-9]*' maxlength='2')
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Contact Number
-                            input#contactNumber-1.form-control.form-control-xl(type='number' name='contactNumber')
+                            span(style='color: red;, font-size : 40px ;')  *
+                            input#contactNumber-1.form-control.form-control-xl(type='number'  autocomplete='off' pattern='[0-9]{10}' name='contactNumber'  maxlength='10')
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Date of Joining
-                            input#dateOfJoining-1.form-control.form-control-xl(type='date' name='dateOfJoining')
+                            span(style='color: red;, font-size : 40px ;')  *
+                            input#dateOfJoining-1.form-control.form-control-xl(type='date'  autocomplete='off' name='dateOfJoining')
                           .col-12.col-xl-4.form-outline.mb-4
-                            label.form-label(for='form1Example13') Address
-                            input#address-1.form-control.form-control-xl(type='text' name='address')
-                          .col-12.col-xl-4.form-outline.mb-4
-                            label.form-label(for='form1Example13') Department
-                            input#department-1.form-control.form-control-xl(type='text' name='department')
+                            label(for='department-1') Department:
+                            select#department-1.form-control.form-control-xl(name='department')
+                              option(value=' ')  --- Select the Department --- 
+                              option(value='marketing') Marketing 
+                              option(value='engineering') Engineering 
+                              option(value='finance') Finance 
+                              option(value='finance') IT
                           .col-12.col-xl-4.form-outline.mb-4
                             label.form-label(for='form1Example13') Past Experiance
-                            input#pastExperiance-1.form-control.form-control-xl(type='text' name='pastExperiance')
+                            input#pastExperiance-1.form-control.form-control-xl(type='number'  autocomplete='off' name='pastExperiance' pattern='[0-9]*' maxlength='2')
+                          .col-12.col-xl-4
+                          .col-12.col-xl-12.form-outline.mb-4
+                            label.form-label(for='form1Example13') Address
+                            textarea#address-1.form-control.form-control-xl(name='' rows='4'  autocomplete='off' cols='10' type='text')
                           // Submit button
                           .col-12.col-xl-4
                             button#id-submit.btn.btn-primary.btn-lg.btn-block(type='submit') Submit

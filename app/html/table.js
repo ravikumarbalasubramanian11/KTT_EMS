@@ -1,4 +1,3 @@
-// Example data
 (async () => {
   const response = await fetch('/login/findAll');
   const data = await response.json();
@@ -6,10 +5,8 @@
 })();
 
 function displayData(data) {
-  // Get a reference to the table body
   const tableBody = document.querySelector('#myTable tbody');
 
-  // Loop through the data and create a row for each item
   data.forEach(item => {
     const row = tableBody.insertRow();
 
@@ -56,18 +53,15 @@ function displayData(data) {
     fetch(`/login/delete/${empId}`, { method: 'DELETE' })
         .then(response => {
         if (response.ok) {
-            // Show a success message to the user
             console.log('Employee deleted successfully.');
-            // Redirect to the employees list page
         
             window.alert("User Deleted")
         } else {
-            // Show an error message to the user
             console.error('Error deleting employee.');
         }
     })
     .catch(error => console.error(error));
-    // Delete the row from the table
+    
         tableBody.removeChild(row);
     });
     actionCell.appendChild(button);

@@ -51,14 +51,19 @@ head
                           input#contactNumber.form-control.form-control-xl(type='number' name='contactNumber')
                           label.form-label(for='form1Example13') Contact Number
                         .col-12.col-xl-6.form-outline.mb-4
-                          input#dateOfJoining.form-control.form-control-xl(type='date' name='dateOfJoining')
+                          input#contactNumber-1.form-control.form-control-xl(type='text' name='contactNumber' pattern='[0-9]*' maxlength='10')
                           label.form-label(for='form1Example13') Date of Joining
                         .col-12.col-xl-6.form-outline.mb-4
                           input#address.form-control.form-control-xl(type='text' name='address')
                           label.form-label(for='form1Example13') Address
                         .col-12.col-xl-6.form-outline.mb-4
-                          input#department.form-control.form-control-xl(type='text' name='department')
-                          label.form-label(for='form1Example13') Department
+                          label(for='department-1') Department:
+                            select#department-1.form-control.form-control-xl(name='department')
+                              option(value='') ----- 
+                              option(value='marketing') Marketing 
+                              option(value='engineering') Engineering 
+                              option(value='finance') Finance 
+                              option(value='finance') IT
                         .col-12.col-xl-6.form-outline.mb-4
                           input#pastExperiance.form-control.form-control-xl(type='text' name='pastExperiance')
                           label.form-label(for='form1Example13') Past Experiance

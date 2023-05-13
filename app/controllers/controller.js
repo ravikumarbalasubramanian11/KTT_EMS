@@ -1,6 +1,7 @@
 const { response } = require("express");
 const db = require("../models");
 const Employee = db.employee;
+const EmployeeRole = db.employeeRole ;
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcrypt');
 
@@ -35,24 +36,6 @@ exports.create = (req, res) => {
 
   console.log(employ);
 
-  if (
-    fullname === "" ||
-    lastName === "" ||
-    age === "" ||
-    bloodGroup === "" ||
-    contactNumber === "" ||
-    dateOfJoining === "" ||
-    address === "" ||
-    department === "" ||
-    pastExperiance === "" ||
-    userName === "" ||
-    password === "" ||
-    email === ""
-  ) {
-    res.status(400).json({ error: "Required all Input Fields" });
-    console.log("Required all Input Fields");
-    return;
-  }
 
   Employee.create(employ)
     .then((data) => {
@@ -70,9 +53,6 @@ exports.create = (req, res) => {
       }
     });
 };
-
-
-
 
 exports.create1 = (req, res) => {
   const employ ={
@@ -166,17 +146,15 @@ exports.findOne = (req, res) => {
         res.status(500).json({ errorMessage: err.message });
       });
   };
-  
-  exports.findAll = (req, res) => {
 
+  exports.findAll = (req, res) => {
     Employee.findAll()
       .then(data => {
-        res.send(data);
+        res.json(data);
       })
       .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving login."
+        res.status(500).json({
+          message: err.message || "Some error occurred while retrieving login."
         });
       });
   };
@@ -272,3 +250,134 @@ exports.update = (req, res) => {
       });
     });
 };
+
+exports.findAllEmp = async (req, res) => {
+  try {
+    const employeelist = await Employee.findAll();
+    return res.send({ success: true, results: employeelist });
+  } catch (error) {
+    return res.send({ success: false, error: 'error fetching list' });
+  }
+}
+
+exports.findOneUserName = (req, res) => {
+  const userName = req.body.userName;
+
+  Employee.findOne({
+    where: {
+      userName: userName,
+    },
+  })
+    .then(async (employee) => {
+      if (!employee) {
+        res.json( {
+          errorMessage: "Employee not found."
+        })}
+      else{
+        res.json( {
+          errorMessage: "Employee  found."
+        })
+      }
+      return;
+      })
+        
+    .catch(err => {
+      res.render('login', {
+        errorMessage: err.message || 'An error occurred'
+      });
+    });
+  }
+
+  exports.findSales = (req, res) => {
+  
+    Employee.count({
+      where: {
+        department: 'IT'
+      }
+    })
+    .then(count => {
+      res.json({
+        count: count
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({
+        error: 'An error occurred while counting employees.'
+      });
+    });
+  }
+  
+  exports.findMarketing = (req, res) => {
+  
+    Employee.count({
+      where: {
+        department: 'marketing'
+      }
+    })
+    .then(count => {
+      res.json({
+        count: count
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({
+        error: 'An error occurred while counting employees.'
+      });
+    });
+  }
+
+  exports.findEngineering = (req, res) => {
+  
+    Employee.count({
+      where: {
+        department: 'engineering'
+      }
+    })
+    .then(count => {
+      res.json({
+        count: count
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({
+        error: 'An error occurred while counting employees.'
+      });
+    });
+  }
+
+  exports.findFinance = (req, res) => {
+  
+    Employee.count({
+      where: {
+        department: 'finance'
+      }
+    })
+    .then(count => {
+      res.json({
+        count: count
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({
+        error: 'An error occurred while counting employees.'
+      });
+    });
+  }
+  
+  exports.userRole = async (req, res) => {
+    Role={
+      role:req.body.role,
+      subRole:req.body.subRole,
+      isbool:req.body.boolean
+    }
+    try {
+      const employeerole = await EmployeeRole.create(Role);
+      return res.send({ success: true, results: employeerole });
+    } catch (error) {
+      return res.send({ success: false, error: 'error fetching list' });
+    }
+  }

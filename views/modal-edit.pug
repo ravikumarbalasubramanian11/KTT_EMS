@@ -1,6 +1,6 @@
 //if(sessionAdmin)
-  button.btn.btn-warning(type='button' data-toggle='modal' data-target='#exampleModal')
-    New Update 
+//button.btn.btn-warning(type='button' data-toggle='modal' data-target='#exampleModal')
+  New Update 
 // Modal
 #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
   .modal-dialog.modal-xl(role='document')
@@ -11,3 +11,14 @@
             span(aria-hidden='true') &times;
       .modal-body
         include edit
+#staticBackdrop.modal.fade(data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#staticBackdropLabel.modal-title Are you Sure want to delete Employee 
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') No
+        button#delete-btn.btn.btn-primary(type='button') Yes
